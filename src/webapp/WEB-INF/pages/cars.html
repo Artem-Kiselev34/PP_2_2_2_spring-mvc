@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Table</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            border: 1px solid black;
+        }
+
+        .grid-item {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .header {
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<div class="grid-container">
+    <div class="grid-item header">Brand</div>
+    <div class="grid-item header">Model</div>
+    <div class="grid-item header">Year</div>
+
+    <div class="grid-item" th:each="car : ${cars}" th:text="${car.getBrand()}"></div>
+    <div class="grid-item" th:each="car : ${cars}" th:text="${car.getModel()}"></div>
+    <div class="grid-item" th:each="car : ${cars}" th:text="${car.getYear()}"></div>
+</div>
+
+</body>
+</html>
